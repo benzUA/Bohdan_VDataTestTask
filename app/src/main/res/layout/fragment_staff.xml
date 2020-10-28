@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="?attr/actionBarSize"
+    android:layout_marginBottom="?attr/actionBarSize"
+    tools:context=".ui.comp.CompFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+        <Button
+            android:id="@+id/staff1"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff2"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff3"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff4"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff5"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff6"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff7"
+            style="@style/MainButton" />
+
+        <Button
+            android:id="@+id/staff8"
+            style="@style/MainButton" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bohdan_VDataTestTask</string>
+    <string name="title_comp">Компании</string>
+    <string name="title_staff">Сотрудники</string>
+</resources>
