@@ -34,7 +34,18 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="Введите список компаний." />
+        android:hint="Введите id компании сотрудника." />
+
+    <TextView
+        android:id="@+id/staff_alert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="4dp"
+        android:textColor="#ffffff"
+        android:text="Неправильный id компании!"/>
 
     <EditText
         android:id="@+id/staff_pic"

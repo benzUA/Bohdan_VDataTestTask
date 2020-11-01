@@ -9,8 +9,11 @@ import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 import com.example.bohdan_vdatatesttask.MainActivity
+import com.example.bohdan_vdatatesttask.MainDB
 import com.example.bohdan_vdatatesttask.R
-import kotlinx.android.synthetic.main.dialog_comp.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 
 class CompDialog: DialogFragment() {
@@ -20,13 +23,10 @@ class CompDialog: DialogFragment() {
             val v: View = LayoutInflater.from(context).inflate(R.layout.dialog_comp, null, false)
 
             builder.setView(v)
-                .setPositiveButton("Сохранить"){ dialog, _ ->
-                        val text: String = v.findViewById<EditText>(R.id.comp_name).text.toString()
-               //       val et = dialog.getDialog().findViewById(R.id.comp_name)
-                        if (text.isNotEmpty()) {
-                            (activity as MainActivity?)!!.insertCompTable(text)
-                            dialog.cancel()
-                            Log.d("a", "DialogDB")
+                .setPositiveButton("Сохранить"){ _, _ ->
+                    GlobalScope.launch(Dispatchers.IO){
+                        val compName = v.findViewById<EditText>(R.id.comp_name)
+                        saveComp(compName.text.toString())
                     }
                 }
                 .setNegativeButton("Отмена") {
@@ -34,5 +34,14 @@ class CompDialog: DialogFragment() {
                 }
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
+    }
+
+    private suspend fun saveComp(name: String){
+        if(name.isNotEmpty())
+        {
+            val compDao = MainDB.getDatabase(requireContext()).companyDao()
+            compDao.insert(CompanyInfo(compName = name))
+        }
+        else return
     }
 }
