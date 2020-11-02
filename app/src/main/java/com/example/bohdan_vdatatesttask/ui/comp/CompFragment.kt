@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.bohdan_vdatatesttask.MainActivity
 import com.example.bohdan_vdatatesttask.R
-import kotlinx.android.synthetic.main.fragment_comp.*
 import java.lang.Exception
 
 

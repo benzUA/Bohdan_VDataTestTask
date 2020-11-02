@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import com.example.bohdan_vdatatesttask.MainDB
 
-//for coroutines and db
 
 class StaffViewModel(application: Application): AndroidViewModel(application) {
 

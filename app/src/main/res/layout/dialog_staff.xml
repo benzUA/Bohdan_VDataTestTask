@@ -47,15 +47,15 @@
         android:textColor="#ffffff"
         android:text="Неправильный id компании!"/>
 
-    <EditText
+    <Button
         android:id="@+id/staff_pic"
-        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:layout_marginTop="16dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="4dp"
-        android:hint="Введите аватарку сотрудника." />
+        android:text = "Выбрать аватарку" />
 
 </LinearLayout>
