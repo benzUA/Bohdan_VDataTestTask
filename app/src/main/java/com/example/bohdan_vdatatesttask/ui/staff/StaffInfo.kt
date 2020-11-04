@@ -11,5 +11,6 @@ data class StaffInfo (
     @ColumnInfo (name = "staff_name") var staffName: String,
     @ColumnInfo (name = "staff_surname") var staffSurname: String,
     @ColumnInfo (name = "staff_comp") var staffComp: Long,
-    @ColumnInfo (name = "staff_pic") var staffPic: String
+    @ColumnInfo (name = "staff_pic") var staffPic: String,
+    @ColumnInfo (name = "staff_date") var staffDate: String
 )

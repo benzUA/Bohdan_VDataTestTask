@@ -6,7 +6,7 @@ import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.widget.BaseAdapter
 import android.widget.GridView
-import android.widget.ProgressBar
+import android.widget.ImageView
 import java.io.BufferedInputStream
 import java.io.IOException
 import java.io.InputStream
@@ -15,20 +15,16 @@ import java.net.MalformedURLException
 import java.net.URL
 
 
-class StaffImagesDownload(progressDialog: ProgressBar, c: Context, gw: GridView): AsyncTask<String, Void, MutableList<Bitmap?>>() {
-    private var prBar = progressDialog
+class StaffImagesDownload(c: Context, gw: GridView?, iw: ImageView?): AsyncTask<String, Void, MutableList<Bitmap?>>() {
     private var context: Context = c
-    private var gridView: GridView = gw
-
-    override fun onPreExecute() {
-        prBar.visibility = ProgressBar.VISIBLE
-    }
+    private var gridView: GridView? = gw
+    private var imageView: ImageView? = iw
 
     override fun doInBackground(vararg urls: String?): MutableList<Bitmap?> {
         val count: Int = urls.size
         var connection: HttpURLConnection? = null
         val bitmaps: MutableList<Bitmap?> = ArrayList()
-        var urlsNew: MutableList<URL?> = mutableListOf()
+        val urlsNew: MutableList<URL?> = mutableListOf()
 
         for(i in urls.indices){
             urlsNew.add(stringToURL(urls[i]))
@@ -57,10 +53,12 @@ class StaffImagesDownload(progressDialog: ProgressBar, c: Context, gw: GridView)
     }
 
     override fun onPostExecute(result: MutableList<Bitmap?>) {
-        prBar.visibility = ProgressBar.INVISIBLE
-        val imagesAdapter: BaseAdapter = StaffImagesAdapter(context, result)
-
-        gridView.adapter = imagesAdapter
+        if(result.size > 1) {
+            val imagesAdapter: BaseAdapter = StaffImagesAdapter(context, result)
+            gridView?.adapter = imagesAdapter
+        } else{
+            imageView?.setImageBitmap(result[0])
+        }
     }
 
     private fun stringToURL(urlString: String?): URL? {

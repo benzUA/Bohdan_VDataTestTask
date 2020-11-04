@@ -21,6 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:screenOrientation="portrait" android:name=".ui.staff.StaffImagesView"/>
+        <activity android:screenOrientation="portrait" android:name=".ui.staff.StaffShowDetails"/>
+        <activity android:screenOrientation="portrait" android:name=".ui.comp.CompShowDetails"/>
     </application>
 
 </manifest>

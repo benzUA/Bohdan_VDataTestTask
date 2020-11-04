@@ -1,5 +1,6 @@
 package com.example.bohdan_vdatatesttask.ui.comp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -38,6 +39,7 @@ class CompFragment : Fragment() {
             compList = companies
             showCompanies()
             setLongClickListeners()
+            setClickListeners()
         })
     }
 
@@ -77,7 +79,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp1).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -87,7 +89,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp2).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -97,7 +99,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp3).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -107,7 +109,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp4).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -117,7 +119,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp5).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim() //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -127,7 +129,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp6).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -137,7 +139,7 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp7).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim()  //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
             }
@@ -147,9 +149,102 @@ class CompFragment : Fragment() {
             str = v.findViewById<Button>(R.id.comp8).text.toString()
             if(str != "-")
             {
-                str = str.substring(3, str.length)  //убрать ид
+                str = str.substringAfterLast(")").trim() //убрать ид
                 val dialog = CompDeleteDialog(str)
                 dialog.show(requireFragmentManager(), "")
+            }
+            true
+        }
+    }
+
+    private fun setClickListeners() {
+        lateinit var str: String
+        val intent = Intent(context, CompShowDetails::class.java)
+        v.findViewById<Button>(R.id.comp1).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp1).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp2).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp2).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp3).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp3).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp4).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp4).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp5).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp5).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp6).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp6).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp7).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp7).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
+            }
+            true
+        }
+        v.findViewById<Button>(R.id.comp8).setOnClickListener {
+            str = v.findViewById<Button>(R.id.comp8).text.toString()
+            if (str != "-") {
+                val name = str.substringAfterLast(")").trim()
+                val id = str.substringBeforeLast(")")
+                intent.putExtra("comp_name", name)
+                intent.putExtra("comp_id", id)
+                startActivity(intent)
             }
             true
         }

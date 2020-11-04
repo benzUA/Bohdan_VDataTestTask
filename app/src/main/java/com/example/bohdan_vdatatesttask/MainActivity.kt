@@ -29,8 +29,7 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val appBarConfiguration = AppBarConfiguration(setOf(
                 R.id.navigation_comp, R.id.navigation_staff))
 
@@ -57,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 dialog.show(supportFragmentManager, "")
             }
             R.id.navigation_staff -> {
-                val dialog = StaffDialog()
+                val dialog = StaffDialog(true, null, null ,null, null, null)
                 dialog.show(supportFragmentManager, "")
             }
             else -> {
